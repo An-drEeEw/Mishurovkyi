@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="styles.css" />
+		<title>Форма реєстрації</title>
+	</head>
+	<body>
+		<div class="container">
+			<h1>Форма реєстрації</h1>
+			<div class="error-message" id="error-message"></div>
+			<form id="registration-form">
+				<div class="form-group">
+					<label for="login">Логін:</label>
+					<input type="text" id="login" name="login" required />
+				</div>
+				<div class="form-group">
+					<label for="password">Пароль:</label>
+					<div class="password-container">
+						<input type="password" id="password" name="password" required />
+						<button type="button" id="show-password">Показати</button>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="confirm-password">Підтвердження паролю:</label>
+					<div class="password-container">
+						<input
+							type="password"
+							id="confirm-password"
+							name="confirm-password"
+							required
+						/>
+						<button type="button" id="show-confirm-password">Показати</button>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="email">Електронна пошта:</label>
+					<input type="email" id="email" name="email" required />
+				</div>
+				<div class="form-group">
+					<label for="full-name">Повне ім'я:</label>
+					<input type="text" id="full-name" name="full-name" required />
+				</div>
+				<div class="form-group">
+					<label for="captcha">Код з капчі:</label>
+					<div class="captcha-container">
+						<input type="text" id="captcha" name="captcha" required />
+						<img src="captcha.jpg" alt="Капча" id="captcha-image" />
+					</div>
+				</div>
+				<button type="button" id="clear-button">Очистити</button>
+				<button type="submit">Відправити</button>
+			</form>
+		</div>
+		<script src="script.js"></script>
+	</body>
+</html>

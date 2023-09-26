@@ -1,73 +1,96 @@
 body {
+	font-family: Arial, sans-serif;
+	background: url('Fon_2.jpg') center center/cover no-repeat;
 	margin: 0;
 	padding: 0;
-	font-family: Arial, sans-serif;
+	height: 750px;
+	margin-top: 100px;
 }
 
 .container {
-	position: relative;
-	max-width: 500px;
-	margin: 20px auto;
-	padding: 20px;
-	border-radius: 10px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-	text-align: center;
 	background-color: rgba(255, 255, 255, 0.8);
+	padding: 30px;
+	border-radius: 10px;
+	margin: 0px auto;
+	max-width: 400px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-.background-image {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-image: url('/Fon.jpg');
-	background-size: cover;
-	background-position: center;
-	opacity: 0.9;
-	z-index: -1;
-}
 h1 {
-	font-size: 24px;
-	margin-bottom: 20px;
+	text-align: center;
 }
 
 .form-group {
-	margin-bottom: 15px;
-	text-align: left;
-	padding-right: 20px;
+	margin-bottom: 20px;
 }
 
 label {
 	display: block;
-	margin-bottom: 5px;
+	font-weight: bold;
 }
 
 input[type='text'],
-input[type='tel'],
-input[type='email'],
-select,
-textarea {
-	width: 100%;
+input[type='password'],
+input[type='email'] {
+	width: 95%;
 	padding: 10px;
 	border: 1px solid #ccc;
 	border-radius: 5px;
 }
 
-small {
-	color: #777;
+.password-container {
+	display: flex;
+	align-items: center;
+}
+
+.password-container input[type='password'] {
+	flex: 1;
+}
+
+.password-container button {
+	padding: 10px;
+	background-color: #1657d1;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.password-container button#show-password,
+.password-container button#show-confirm-password {
+	margin-left: 10px;
+}
+
+.captcha-container {
+	display: flex;
+	align-items: center;
+}
+
+.captcha-container input[type='text'] {
+	flex: 1;
+}
+
+.captcha-container img {
+	max-width: 100px;
+	margin-left: 10px;
 }
 
 button {
+	padding: 10px 20px;
 	background-color: #007bff;
 	color: #fff;
 	border: none;
 	border-radius: 5px;
-	padding: 10px 20px;
-	margin-top: 10px;
 	cursor: pointer;
 }
 
-#captcha-error {
-	color: red;
+button#clear-button {
+	background-color: #f00;
+	margin-right: 10px;
+}
+
+.error-message {
+	color: #f00;
+	text-align: center;
+	margin-top: 10px;
 }
