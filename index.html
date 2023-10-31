@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" type="text/css" href="styles.css" />
+		<script src="script.js" defer></script>
+		<title>Андрій Мішуровський - Веб-розробник</title>
+	</head>
+	<body>
+		<header>
+			<h1>Андрій Мішуровський</h1>
+			<p>Народився: 29 липня 2005</p>
+			<p>Телефон: +380631573356</p>
+			<p>Email: pochta123@gmail.com</p>
+		</header>
+
+		<section id="resume">
+			<h2>Резюме</h2>
+			<p>
+				Навчаюсь у ККЗ. На даний момент активно навчаю С++. Не маю офіційного
+				досвіду роботи, але брав участь у розробці проектів. Маю навички роботи
+				з HTML, CSS та JavaScript.
+			</p>
+		</section>
+
+		<section id="skills">
+			<h2>Навички</h2>
+			<ul>
+				<li>HTML</li>
+				<li>CSS</li>
+				<li>JavaScript</li>
+				<li>C++</li>
+			</ul>
+		</section>
+
+		<section id="projects">
+			<h2>Проекти</h2>
+			<ul>
+				<li><a href="#">Проект 1</a> - Опис проекту 1.</li>
+				<li><a href="#">Проект 2</a> - Опис проекту 2.</li>
+			</ul>
+		</section>
+
+		<section id="hobbies">
+			<h2>Хобі</h2>
+			<ul>
+				<li>Спорт</li>
+				<li>Кемпінг</li>
+				<li>Активний відпочинок</li>
+				<li>Гра в шахи</li>
+			</ul>
+		</section>
+
+		<section id="contact">
+			<h2>Зв'яжіться зі мною</h2>
+			<form id="contact-form">
+				<div>
+					<label for="name">Ім'я:</label>
+					<input type="text" id="name" name="name" required />
+				</div>
+				<div>
+					<label for="email">Email:</label>
+					<input type="email" id="email" name="email" required />
+				</div>
+				<div>
+					<label for="message">Повідомлення:</label>
+					<textarea id="message" name="message" required></textarea>
+				</div>
+				<button type="submit">Відправити</button>
+			</form>
+		</section>
+
+		<section id="gallery">
+			<h2>Фотогалерея</h2>
+			<div class="gallery-container">
+				<img src="image1.jpg" alt="Фото 1" />
+				<img src="image2.jpg" alt="Фото 2" />
+				<img src="image3.jpg" alt="Фото 3" />
+			</div>
+		</section>
+
+		<section id="video">
+			<h2>Відеопрезентація</h2>
+			<iframe
+				width="560"
+				height="315"
+				src="https://www.youtube.com/embed/ВАШЕ-ВІДЕО-ID"
+				frameborder="0"
+				allowfullscreen
+			></iframe>
+		</section>
+
+		<section id="downloads">
+			<h2>Завантаження</h2>
+			<a href="resume.pdf" download>Завантажити резюме (PDF)</a>
+		</section>
+
+		<footer>
+			<p>&copy; 2023 Андрій Мішуровський</p>
+		</footer>
+	</body>
+</html>

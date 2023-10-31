@@ -1,58 +1,66 @@
 document.addEventListener('DOMContentLoaded', function () {
-	const errorMessage = document.getElementById('error-message')
-	const captchaInput = document.getElementById('captcha')
-	const captchaImage = document.getElementById('captcha-image')
-	const registrationForm = document.getElementById('registration-form')
-	const showPasswordButton = document.getElementById('show-password')
-	const showConfirmPasswordButton = document.getElementById(
-		'show-confirm-password'
-	)
-	const passwordInput = document.getElementById('password')
-	const confirmPasswordInput = document.getElementById('confirm-password')
+	// Додайте інтерактивність для галереї та відеопрезентації
+	const galleryContainer = document.querySelector('.gallery-container')
+	const images = galleryContainer.querySelectorAll('img')
+	let currentImageIndex = 0
 
-	showPasswordButton.addEventListener('click', function () {
-		togglePasswordVisibility(passwordInput, showPasswordButton)
-	})
-
-	showConfirmPasswordButton.addEventListener('click', function () {
-		togglePasswordVisibility(confirmPasswordInput, showConfirmPasswordButton)
-	})
-
-	function togglePasswordVisibility(inputElement, buttonElement) {
-		if (inputElement.type === 'password') {
-			inputElement.type = 'text'
-			buttonElement.textContent = 'Сховати'
-		} else {
-			inputElement.type = 'password'
-			buttonElement.textContent = 'Показати'
-		}
+	function showImage(index) {
+		images.forEach((image, i) => {
+			if (i === index) {
+				image.style.display = 'block'
+			} else {
+				image.style.display = 'none'
+			}
+		})
 	}
 
-	registrationForm.addEventListener('submit', function (e) {
-		e.preventDefault()
+	// Перемикач для галереї
+	function nextImage() {
+		currentImageIndex = (currentImageIndex + 1) % images.length
+		showImage(currentImageIndex)
+	}
 
-		const password = passwordInput.value
-		const confirmPassword = confirmPasswordInput.value
-		if (password !== confirmPassword) {
-			errorMessage.textContent = 'Пароль не підтверджено правильно!'
-			return
+	function prevImage() {
+		currentImageIndex = (currentImageIndex - 1 + images.length) % images.length
+		showImage(currentImageIndex)
+	}
+
+	// Запуск галереї
+	showImage(currentImageIndex)
+
+	// Наприклад, можна додати слайд-шоу для галереї
+	// Запуск слайд-шоу кожні 3 секунди
+	setInterval(nextImage, 3000)
+
+	// Можливість відтворення / призупинення відео
+	const videoFrame = document.querySelector('iframe')
+	let isVideoPlaying = true
+
+	function toggleVideoPlayback() {
+		if (isVideoPlaying) {
+			videoFrame.contentWindow.postMessage(
+				'{"event":"command","func":"pauseVideo","args":""}',
+				'*'
+			)
+		} else {
+			videoFrame.contentWindow.postMessage(
+				'{"event":"command","func":"playVideo","args":""}',
+				'*'
+			)
 		}
+		isVideoPlaying = !isVideoPlaying
+	}
 
-		const captchaValue = captchaInput.value.trim()
-		if (captchaValue !== '25081') {
-			errorMessage.textContent = 'Капча вказана не вірно!'
-			return
-		}
+	// Додайте інтерактивність для кнопки відео
+	const videoButton = document.querySelector('#video button')
+	videoButton.addEventListener('click', toggleVideoPlayback)
 
-		registrationForm.reset()
-		errorMessage.textContent = ''
-		alert('Реєстрація успішна!')
-	})
-
-	document
-		.getElementById('clear-button')
-		.addEventListener('click', function () {
-			registrationForm.reset()
-			errorMessage.textContent = ''
+	// Наприклад, можна вивести повідомлення при кліці на посилання на проект
+	const projectLinks = document.querySelectorAll('#projects a')
+	projectLinks.forEach(link => {
+		link.addEventListener('click', function (e) {
+			e.preventDefault()
+			alert(`Ви вибрали проект: ${link.textContent}`)
 		})
+	})
 })
